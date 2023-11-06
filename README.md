@@ -6,4 +6,4 @@ Project : Microwave Oven Simulation
 
 Embedded System Internship
 
-Emertxe Internship
+@Emertxe Internship
