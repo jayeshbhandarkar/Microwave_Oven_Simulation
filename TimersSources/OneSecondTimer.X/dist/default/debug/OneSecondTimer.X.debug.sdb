@@ -1,0 +1,52 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"11 C:\Users\Emertxe\Desktop\Rajani\MC Internship\Template_Codes\Template_Codes\03-TimersSources\OneSecondTimer.X\main.c
+[v _init_config init_config `(v  1 s 1 init_config ]
+"21
+[v _main main `(v  1 e 1 0 ]
+"3 C:\Users\Emertxe\Desktop\Rajani\MC Internship\Template_Codes\Template_Codes\03-TimersSources\OneSecondTimer.X\timers.c
+[v _init_timer0 init_timer0 `(v  1 e 1 0 ]
+"59 C:/Users/Emertxe/.mchp_packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[v _TMR0 TMR0 `VEuc  1 e 1 @1 ]
+"340
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"1499
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"2569
+[v _GIE GIE `VEb  1 e 0 @95 ]
+"2644
+[v _PSA PSA `VEb  1 e 0 @1035 ]
+"2749
+[v _RD0 RD0 `VEb  1 e 0 @64 ]
+"2845
+[v _T0CS T0CS `VEb  1 e 0 @1037 ]
+"2878
+[v _TMR0IE TMR0IE `VEb  1 e 0 @93 ]
+"2881
+[v _TMR0IF TMR0IF `VEb  1 e 0 @90 ]
+"21 C:\Users\Emertxe\Desktop\Rajani\MC Internship\Template_Codes\Template_Codes\03-TimersSources\OneSecondTimer.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"28
+} 0
+"11
+[v _init_config init_config `(v  1 s 1 init_config ]
+{
+"19
+} 0
+"3 C:\Users\Emertxe\Desktop\Rajani\MC Internship\Template_Codes\Template_Codes\03-TimersSources\OneSecondTimer.X\timers.c
+[v _init_timer0 init_timer0 `(v  1 e 1 0 ]
+{
+"15
+} 0
