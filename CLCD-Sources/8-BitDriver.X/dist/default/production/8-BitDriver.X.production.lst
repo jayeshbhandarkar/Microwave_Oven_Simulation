@@ -1,0 +1,1069 @@
+
+
+Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
+                                                                                               Fri Oct 06 23:48:27 2023
+
+Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
+     1                           	processor	16F877A
+     2                           	pagewidth 120
+     3                           	opt	flic
+     4                           	psect	strings,global,class=STRING,delta=2,noexec
+     5                           	psect	cinit,global,class=CODE,merge=1,delta=2
+     6                           	psect	cstackCOMMON,global,class=COMMON,space=1,delta=1,noexec
+     7                           	psect	maintext,global,class=CODE,split=1,delta=2
+     8                           	psect	text1,local,class=CODE,merge=1,delta=2
+     9                           	psect	text2,local,class=CODE,merge=1,delta=2
+    10                           	psect	text3,local,class=CODE,merge=1,delta=2
+    11                           	psect	text4,local,class=CODE,merge=1,delta=2
+    12                           	psect	text5,local,class=CODE,merge=1,delta=2
+    13                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=2,noexec
+    14                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=2,noexec
+    15                           	dabs	1,0x7E,2
+    16     0000                     
+    17                           ; Generated 09/02/2023 GMT
+    18                           ; 
+    19                           ; Copyright © 2023, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    20                           ; All rights reserved.
+    21                           ; 
+    22                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+      +                          ip").
+    23                           ; 
+    24                           ; Redistribution and use in source and binary forms, with or without modification, are
+    25                           ; permitted provided that the following conditions are met:
+    26                           ; 
+    27                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+      +                          t of
+    28                           ;        conditions and the following disclaimer.
+    29                           ; 
+    30                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+      +                          list
+    31                           ;        of conditions and the following disclaimer in the documentation and/or other
+    32                           ;        materials provided with the distribution. Publication is not required when
+    33                           ;        this file is used in an embedded application.
+    34                           ; 
+    35                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+      +                          is
+    36                           ;        software without specific prior written permission.
+    37                           ; 
+    38                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    39                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+      +                          OR
+    40                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+      +                          T,
+    41                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    42                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    43                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+      +                          RICT
+    44                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+      +                          SE OF
+    45                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+    46                           ; 
+    47                           ; 
+    48                           ; Code-generator required, PIC16F877A Definitions
+    49                           ; 
+    50                           ; SFR Addresses
+    51     0000                     	;# 
+    52     0001                     	;# 
+    53     0002                     	;# 
+    54     0003                     	;# 
+    55     0004                     	;# 
+    56     0005                     	;# 
+    57     0006                     	;# 
+    58     0007                     	;# 
+    59     0008                     	;# 
+    60     0009                     	;# 
+    61     000A                     	;# 
+    62     000B                     	;# 
+    63     000C                     	;# 
+    64     000D                     	;# 
+    65     000E                     	;# 
+    66     000E                     	;# 
+    67     000F                     	;# 
+    68     0010                     	;# 
+    69     0011                     	;# 
+    70     0012                     	;# 
+    71     0013                     	;# 
+    72     0014                     	;# 
+    73     0015                     	;# 
+    74     0015                     	;# 
+    75     0016                     	;# 
+    76     0017                     	;# 
+    77     0018                     	;# 
+    78     0019                     	;# 
+    79     001A                     	;# 
+    80     001B                     	;# 
+    81     001B                     	;# 
+    82     001C                     	;# 
+    83     001D                     	;# 
+    84     001E                     	;# 
+    85     001F                     	;# 
+    86     0081                     	;# 
+    87     0085                     	;# 
+    88     0086                     	;# 
+    89     0087                     	;# 
+    90     0088                     	;# 
+    91     0089                     	;# 
+    92     008C                     	;# 
+    93     008D                     	;# 
+    94     008E                     	;# 
+    95     0091                     	;# 
+    96     0092                     	;# 
+    97     0093                     	;# 
+    98     0094                     	;# 
+    99     0098                     	;# 
+   100     0099                     	;# 
+   101     009C                     	;# 
+   102     009D                     	;# 
+   103     009E                     	;# 
+   104     009F                     	;# 
+   105     010C                     	;# 
+   106     010D                     	;# 
+   107     010E                     	;# 
+   108     010F                     	;# 
+   109     018C                     	;# 
+   110     018D                     	;# 
+   111     0000                     	;# 
+   112     0001                     	;# 
+   113     0002                     	;# 
+   114     0003                     	;# 
+   115     0004                     	;# 
+   116     0005                     	;# 
+   117     0006                     	;# 
+   118     0007                     	;# 
+   119     0008                     	;# 
+   120     0009                     	;# 
+   121     000A                     	;# 
+   122     000B                     	;# 
+   123     000C                     	;# 
+   124     000D                     	;# 
+   125     000E                     	;# 
+   126     000E                     	;# 
+   127     000F                     	;# 
+   128     0010                     	;# 
+   129     0011                     	;# 
+   130     0012                     	;# 
+   131     0013                     	;# 
+   132     0014                     	;# 
+   133     0015                     	;# 
+   134     0015                     	;# 
+   135     0016                     	;# 
+   136     0017                     	;# 
+   137     0018                     	;# 
+   138     0019                     	;# 
+   139     001A                     	;# 
+   140     001B                     	;# 
+   141     001B                     	;# 
+   142     001C                     	;# 
+   143     001D                     	;# 
+   144     001E                     	;# 
+   145     001F                     	;# 
+   146     0081                     	;# 
+   147     0085                     	;# 
+   148     0086                     	;# 
+   149     0087                     	;# 
+   150     0088                     	;# 
+   151     0089                     	;# 
+   152     008C                     	;# 
+   153     008D                     	;# 
+   154     008E                     	;# 
+   155     0091                     	;# 
+   156     0092                     	;# 
+   157     0093                     	;# 
+   158     0094                     	;# 
+   159     0098                     	;# 
+   160     0099                     	;# 
+   161     009C                     	;# 
+   162     009D                     	;# 
+   163     009E                     	;# 
+   164     009F                     	;# 
+   165     010C                     	;# 
+   166     010D                     	;# 
+   167     010E                     	;# 
+   168     010F                     	;# 
+   169     018C                     	;# 
+   170     018D                     	;# 
+   171     0000                     	;# 
+   172     0001                     	;# 
+   173     0002                     	;# 
+   174     0003                     	;# 
+   175     0004                     	;# 
+   176     0005                     	;# 
+   177     0006                     	;# 
+   178     0007                     	;# 
+   179     0008                     	;# 
+   180     0009                     	;# 
+   181     000A                     	;# 
+   182     000B                     	;# 
+   183     000C                     	;# 
+   184     000D                     	;# 
+   185     000E                     	;# 
+   186     000E                     	;# 
+   187     000F                     	;# 
+   188     0010                     	;# 
+   189     0011                     	;# 
+   190     0012                     	;# 
+   191     0013                     	;# 
+   192     0014                     	;# 
+   193     0015                     	;# 
+   194     0015                     	;# 
+   195     0016                     	;# 
+   196     0017                     	;# 
+   197     0018                     	;# 
+   198     0019                     	;# 
+   199     001A                     	;# 
+   200     001B                     	;# 
+   201     001B                     	;# 
+   202     001C                     	;# 
+   203     001D                     	;# 
+   204     001E                     	;# 
+   205     001F                     	;# 
+   206     0081                     	;# 
+   207     0085                     	;# 
+   208     0086                     	;# 
+   209     0087                     	;# 
+   210     0088                     	;# 
+   211     0089                     	;# 
+   212     008C                     	;# 
+   213     008D                     	;# 
+   214     008E                     	;# 
+   215     0091                     	;# 
+   216     0092                     	;# 
+   217     0093                     	;# 
+   218     0094                     	;# 
+   219     0098                     	;# 
+   220     0099                     	;# 
+   221     009C                     	;# 
+   222     009D                     	;# 
+   223     009E                     	;# 
+   224     009F                     	;# 
+   225     010C                     	;# 
+   226     010D                     	;# 
+   227     010E                     	;# 
+   228     010F                     	;# 
+   229     018C                     	;# 
+   230     018D                     	;# 
+   231     0008                     _PORTD	set	8
+   232     0049                     _RE1	set	73
+   233     004A                     _RE2	set	74
+   234     0088                     _TRISD	set	136
+   235     0449                     _TRISE1	set	1097
+   236     044A                     _TRISE2	set	1098
+   237                           
+   238                           	psect	strings
+   239     0003                     __pstrings:
+   240     0003                     stringtab:
+   241     0003                     __stringtab:
+   242     0003                     stringcode:	
+   243                           ;	String table - string pointers are 1 byte each
+   244                           
+   245     0003                     stringdir:
+   246     0003  3000               	movlw	high stringdir
+   247     0004  008A               	movwf	10
+   248     0005  0804               	movf	4,w
+   249     0006  0A84               	incf	4,f
+   250     0007  0782               	addwf	2,f
+   251     0008                     __stringbase:
+   252     0008  3400               	retlw	0
+   253     0009                     __end_of__stringtab:
+   254     0009                     STR_4:
+   255     0009  3445               	retlw	69	;'E'
+   256     000A  346D               	retlw	109	;'m'
+   257     000B  3462               	retlw	98	;'b'
+   258     000C  3465               	retlw	101	;'e'
+   259     000D  3464               	retlw	100	;'d'
+   260     000E  3464               	retlw	100	;'d'
+   261     000F  3465               	retlw	101	;'e'
+   262     0010  3464               	retlw	100	;'d'
+   263     0011  3400               	retlw	0
+   264     0012                     STR_3:
+   265     0012  3457               	retlw	87	;'W'
+   266     0013  3465               	retlw	101	;'e'
+   267     0014  346C               	retlw	108	;'l'
+   268     0015  3463               	retlw	99	;'c'
+   269     0016  346F               	retlw	111	;'o'
+   270     0017  346D               	retlw	109	;'m'
+   271     0018  3465               	retlw	101	;'e'
+   272     0019  3400               	retlw	0
+   273     001A                     STR_2:
+   274     001A  3457               	retlw	87	;'W'
+   275     001B  346F               	retlw	111	;'o'
+   276     001C  3472               	retlw	114	;'r'
+   277     001D  346C               	retlw	108	;'l'
+   278     001E  3464               	retlw	100	;'d'
+   279     001F  3400               	retlw	0
+   280     0020                     STR_1:
+   281     0020  3448               	retlw	72	;'H'
+   282     0021  3465               	retlw	101	;'e'
+   283     0022  346C               	retlw	108	;'l'
+   284     0023  346C               	retlw	108	;'l'
+   285     0024  346F               	retlw	111	;'o'
+   286     0025  3400               	retlw	0
+   287                           
+   288                           	psect	cinit
+   289     07FC                     start_initialization:	
+   290                           ; #config settings
+   291                           
+   292     07FC                     __initialization:
+   293     07FC                     end_of_initialization:	
+   294                           ;End of C runtime variable initialization code
+   295                           
+   296     07FC                     __end_of__initialization:
+   297     07FC  0183               	clrf	3
+   298     07FD  120A  118A  2F80   	ljmp	_main	;jump to C main() function
+   299                           
+   300                           	psect	cstackCOMMON
+   301     0070                     __pcstackCOMMON:
+   302     0070                     ?_init_clcd:
+   303     0070                     ?_init_config:	
+   304                           ; 1 bytes @ 0x0
+   305                           
+   306     0070                     ?_main:	
+   307                           ; 1 bytes @ 0x0
+   308                           
+   309     0070                     ?_clcd_write:	
+   310                           ; 1 bytes @ 0x0
+   311                           
+   312     0070                     ?_init_display_controller:	
+   313                           ; 1 bytes @ 0x0
+   314                           
+   315     0070                     clcd_write@mode:	
+   316                           ; 1 bytes @ 0x0
+   317                           
+   318                           
+   319                           ; 1 bytes @ 0x0
+   320     0070                     	ds	1
+   321     0071                     ??_clcd_write:
+   322                           
+   323                           ; 1 bytes @ 0x1
+   324     0071                     	ds	2
+   325     0073                     clcd_write@byte:
+   326                           
+   327                           ; 1 bytes @ 0x3
+   328     0073                     	ds	1
+   329     0074                     ?_clcd_print:
+   330     0074                     ??_init_display_controller:	
+   331                           ; 1 bytes @ 0x4
+   332                           
+   333     0074                     clcd_print@addr:	
+   334                           ; 1 bytes @ 0x4
+   335                           
+   336                           
+   337                           ; 1 bytes @ 0x4
+   338     0074                     	ds	1
+   339     0075                     ??_clcd_print:
+   340     0075                     clcd_print@str:	
+   341                           ; 1 bytes @ 0x5
+   342                           
+   343                           
+   344                           ; 1 bytes @ 0x5
+   345     0075                     	ds	1
+   346     0076                     ??_init_clcd:
+   347     0076                     ??_init_config:	
+   348                           ; 1 bytes @ 0x6
+   349                           
+   350     0076                     ??_main:	
+   351                           ; 1 bytes @ 0x6
+   352                           
+   353                           
+   354                           	psect	maintext
+   355     0780                     __pmaintext:	
+   356                           ; 1 bytes @ 0x6
+   357 ;;
+   358 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   359 ;;
+   360 ;; *************** function _main *****************
+   361 ;; Defined at:
+   362 ;;		line 11 in file "main.c"
+   363 ;; Parameters:    Size  Location     Type
+   364 ;;		None
+   365 ;; Auto vars:     Size  Location     Type
+   366 ;;		None
+   367 ;; Return value:  Size  Location     Type
+   368 ;;                  1    wreg      void 
+   369 ;; Registers used:
+   370 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   371 ;; Tracked objects:
+   372 ;;		On entry : B00/0
+   373 ;;		On exit  : 0/0
+   374 ;;		Unchanged: 0/0
+   375 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   376 ;;      Params:         0       0       0       0       0
+   377 ;;      Locals:         0       0       0       0       0
+   378 ;;      Temps:          0       0       0       0       0
+   379 ;;      Totals:         0       0       0       0       0
+   380 ;;Total ram usage:        0 bytes
+   381 ;; Hardware stack levels required when called: 4
+   382 ;; This function calls:
+   383 ;;		_clcd_print
+   384 ;;		_init_config
+   385 ;; This function is called by:
+   386 ;;		Startup code after reset
+   387 ;; This function uses a non-reentrant model
+   388 ;;
+   389                           
+   390     0780                     _main:	
+   391                           ;psect for function _main
+   392                           
+   393     0780                     l743:	
+   394                           ;incstack = 0
+   395                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   396                           
+   397                           
+   398                           ;main.c: 12:     }
+   399     0780  120A  118A  2727  120A  118A  	fcall	_init_config
+   400     0785                     l745:
+   401     0785  3080               	movlw	128
+   402     0786  00F4               	movwf	clcd_print@addr
+   403     0787  3018               	movlw	(low ((STR_1-__stringbase)| (0+32768)))& (0+255)
+   404     0788  120A  118A  2758  120A  118A  	fcall	_clcd_print
+   405     078D                     l747:
+   406     078D  30C2               	movlw	194
+   407     078E  00F4               	movwf	clcd_print@addr
+   408     078F  3012               	movlw	(low ((STR_2-__stringbase)| (0+32768)))& (0+255)
+   409     0790  120A  118A  2758  120A  118A  	fcall	_clcd_print
+   410     0795                     l749:
+   411     0795  3093               	movlw	147
+   412     0796  00F4               	movwf	clcd_print@addr
+   413     0797  300A               	movlw	(low ((STR_3-__stringbase)| (0+32768)))& (0+255)
+   414     0798  120A  118A  2758  120A  118A  	fcall	_clcd_print
+   415     079D                     l751:
+   416     079D  30D4               	movlw	212
+   417     079E  00F4               	movwf	clcd_print@addr
+   418     079F  3001               	movlw	(low ((STR_4-__stringbase)| (0+32768)))& (0+255)
+   419     07A0  120A  118A  2758  120A  118A  	fcall	_clcd_print
+   420     07A5  2F85               	goto	l745
+   421     07A6  120A  118A  2800   	ljmp	start
+   422     07A9                     __end_of_main:
+   423                           
+   424                           	psect	text1
+   425     0727                     __ptext1:	
+   426 ;; *************** function _init_config *****************
+   427 ;; Defined at:
+   428 ;;		line 7 in file "main.c"
+   429 ;; Parameters:    Size  Location     Type
+   430 ;;		None
+   431 ;; Auto vars:     Size  Location     Type
+   432 ;;		None
+   433 ;; Return value:  Size  Location     Type
+   434 ;;                  1    wreg      void 
+   435 ;; Registers used:
+   436 ;;		wreg, status,2, status,0, pclath, cstack
+   437 ;; Tracked objects:
+   438 ;;		On entry : 0/0
+   439 ;;		On exit  : 0/0
+   440 ;;		Unchanged: 0/0
+   441 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   442 ;;      Params:         0       0       0       0       0
+   443 ;;      Locals:         0       0       0       0       0
+   444 ;;      Temps:          0       0       0       0       0
+   445 ;;      Totals:         0       0       0       0       0
+   446 ;;Total ram usage:        0 bytes
+   447 ;; Hardware stack levels used: 1
+   448 ;; Hardware stack levels required when called: 3
+   449 ;; This function calls:
+   450 ;;		_init_clcd
+   451 ;; This function is called by:
+   452 ;;		_main
+   453 ;; This function uses a non-reentrant model
+   454 ;;
+   455                           
+   456     0727                     _init_config:	
+   457                           ;psect for function _init_config
+   458                           
+   459     0727                     l733:	
+   460                           ;incstack = 0
+   461                           ; Regs used in _init_config: [wreg+status,2+status,0+pclath+cstack]
+   462                           
+   463                           
+   464                           ;main.c: 8:         clcd_print("Hello", (0x80 + 0));
+   465     0727  120A  118A  272D  120A  118A  	fcall	_init_clcd
+   466     072C                     l7:
+   467     072C  0008               	return
+   468     072D                     __end_of_init_config:
+   469                           
+   470                           	psect	text2
+   471     072D                     __ptext2:	
+   472 ;; *************** function _init_clcd *****************
+   473 ;; Defined at:
+   474 ;;		line 36 in file "clcd.c"
+   475 ;; Parameters:    Size  Location     Type
+   476 ;;		None
+   477 ;; Auto vars:     Size  Location     Type
+   478 ;;		None
+   479 ;; Return value:  Size  Location     Type
+   480 ;;                  1    wreg      void 
+   481 ;; Registers used:
+   482 ;;		wreg, status,2, status,0, pclath, cstack
+   483 ;; Tracked objects:
+   484 ;;		On entry : 0/0
+   485 ;;		On exit  : 0/0
+   486 ;;		Unchanged: 0/0
+   487 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   488 ;;      Params:         0       0       0       0       0
+   489 ;;      Locals:         0       0       0       0       0
+   490 ;;      Temps:          0       0       0       0       0
+   491 ;;      Totals:         0       0       0       0       0
+   492 ;;Total ram usage:        0 bytes
+   493 ;; Hardware stack levels used: 1
+   494 ;; Hardware stack levels required when called: 2
+   495 ;; This function calls:
+   496 ;;		_init_display_controller
+   497 ;; This function is called by:
+   498 ;;		_init_config
+   499 ;; This function uses a non-reentrant model
+   500 ;;
+   501                           
+   502     072D                     _init_clcd:	
+   503                           ;psect for function _init_clcd
+   504                           
+   505     072D                     l725:	
+   506                           ;incstack = 0
+   507                           ; Regs used in _init_clcd: [wreg+status,2+status,0+pclath+cstack]
+   508                           
+   509                           
+   510                           ;clcd.c: 39:     TRISD = 0x00;
+   511     072D  1683               	bsf	3,5	;RP0=1, select bank1
+   512     072E  1303               	bcf	3,6	;RP1=0, select bank1
+   513     072F  0188               	clrf	8	;volatile
+   514     0730                     l727:
+   515                           
+   516                           ;clcd.c: 42:     TRISE2 = 0;
+   517     0730  1109               	bcf	9,2	;volatile
+   518     0731                     l729:
+   519                           
+   520                           ;clcd.c: 43:     TRISE1 = 0;
+   521     0731  1089               	bcf	9,1	;volatile
+   522     0732                     l731:
+   523                           
+   524                           ;clcd.c: 45:     init_display_controller();
+   525     0732  120A  118A  27A9  120A  118A  	fcall	_init_display_controller
+   526     0737                     l38:
+   527     0737  0008               	return
+   528     0738                     __end_of_init_clcd:
+   529                           
+   530                           	psect	text3
+   531     07A9                     __ptext3:	
+   532 ;; *************** function _init_display_controller *****************
+   533 ;; Defined at:
+   534 ;;		line 16 in file "clcd.c"
+   535 ;; Parameters:    Size  Location     Type
+   536 ;;		None
+   537 ;; Auto vars:     Size  Location     Type
+   538 ;;		None
+   539 ;; Return value:  Size  Location     Type
+   540 ;;                  1    wreg      void 
+   541 ;; Registers used:
+   542 ;;		wreg, status,2, status,0, pclath, cstack
+   543 ;; Tracked objects:
+   544 ;;		On entry : 0/0
+   545 ;;		On exit  : 0/0
+   546 ;;		Unchanged: 0/0
+   547 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   548 ;;      Params:         0       0       0       0       0
+   549 ;;      Locals:         0       0       0       0       0
+   550 ;;      Temps:          2       0       0       0       0
+   551 ;;      Totals:         2       0       0       0       0
+   552 ;;Total ram usage:        2 bytes
+   553 ;; Hardware stack levels used: 1
+   554 ;; Hardware stack levels required when called: 1
+   555 ;; This function calls:
+   556 ;;		_clcd_write
+   557 ;; This function is called by:
+   558 ;;		_init_clcd
+   559 ;; This function uses a non-reentrant model
+   560 ;;
+   561                           
+   562     07A9                     _init_display_controller:	
+   563                           ;psect for function _init_display_controller
+   564                           
+   565     07A9                     l705:	
+   566                           ;incstack = 0
+   567                           ; Regs used in _init_display_controller: [wreg+status,2+status,0+pclath+cstack]
+   568                           
+   569                           
+   570                           ;clcd.c: 19:     _delay((unsigned long)((30)*(20000000/4000.0)));
+   571     07A9  30C3               	movlw	195
+   572     07AA  00F5               	movwf	??_init_display_controller+1
+   573     07AB  30CD               	movlw	205
+   574     07AC  00F4               	movwf	??_init_display_controller
+   575     07AD                     u77:
+   576     07AD  0BF4               	decfsz	??_init_display_controller,f
+   577     07AE  2FAD               	goto	u77
+   578     07AF  0BF5               	decfsz	??_init_display_controller+1,f
+   579     07B0  2FAD               	goto	u77
+   580     07B1                     l707:
+   581                           
+   582                           ;clcd.c: 22:     clcd_write(0x33, 0);
+   583     07B1  01F0               	clrf	clcd_write@mode
+   584     07B2  3033               	movlw	51
+   585     07B3  120A  118A  2738  120A  118A  	fcall	_clcd_write
+   586     07B8                     l709:
+   587                           
+   588                           ;clcd.c: 23:     _delay((unsigned long)((4100)*(20000000/4000000.0)));
+   589     07B8  301B               	movlw	27
+   590     07B9  00F5               	movwf	??_init_display_controller+1
+   591     07BA  309E               	movlw	158
+   592     07BB  00F4               	movwf	??_init_display_controller
+   593     07BC                     u87:
+   594     07BC  0BF4               	decfsz	??_init_display_controller,f
+   595     07BD  2FBC               	goto	u87
+   596     07BE  0BF5               	decfsz	??_init_display_controller+1,f
+   597     07BF  2FBC               	goto	u87
+   598     07C0  0000               	nop
+   599                           
+   600                           ;clcd.c: 24:     clcd_write(0x33, 0);
+   601     07C1  01F0               	clrf	clcd_write@mode
+   602     07C2  3033               	movlw	51
+   603     07C3  120A  118A  2738  120A  118A  	fcall	_clcd_write
+   604     07C8                     l711:
+   605                           
+   606                           ;clcd.c: 25:      _delay((unsigned long)((100)*(20000000/4000000.0)));
+   607     07C8  30A6               	movlw	166
+   608     07C9  00F4               	movwf	??_init_display_controller
+   609     07CA                     u97:
+   610     07CA  0BF4               	decfsz	??_init_display_controller,f
+   611     07CB  2FCA               	goto	u97
+   612     07CC  0000               	nop
+   613     07CD                     l713:
+   614                           
+   615                           ;clcd.c: 26:     clcd_write(0x33, 0);
+   616     07CD  01F0               	clrf	clcd_write@mode
+   617     07CE  3033               	movlw	51
+   618     07CF  120A  118A  2738  120A  118A  	fcall	_clcd_write
+   619     07D4                     l715:
+   620                           
+   621                           ;clcd.c: 27:     _delay((unsigned long)((1)*(20000000/4000000.0)));
+   622     07D4  2FD5               	nop2	;2 cycle nop
+   623     07D5  2FD6               	nop2	;2 cycle nop
+   624     07D6  0000               	nop
+   625     07D7                     l717:
+   626                           
+   627                           ;clcd.c: 28:     clcd_write(0x30, 0);
+   628     07D7  01F0               	clrf	clcd_write@mode
+   629     07D8  3030               	movlw	48
+   630     07D9  120A  118A  2738  120A  118A  	fcall	_clcd_write
+   631     07DE                     l719:
+   632                           
+   633                           ;clcd.c: 29:     _delay((unsigned long)((100)*(20000000/4000000.0)));
+   634     07DE  30A6               	movlw	166
+   635     07DF  00F4               	movwf	??_init_display_controller
+   636     07E0                     u107:
+   637     07E0  0BF4               	decfsz	??_init_display_controller,f
+   638     07E1  2FE0               	goto	u107
+   639     07E2  0000               	nop
+   640                           
+   641                           ;clcd.c: 30:     clcd_write(0x01, 0);
+   642     07E3  01F0               	clrf	clcd_write@mode
+   643     07E4  3001               	movlw	1
+   644     07E5  120A  118A  2738  120A  118A  	fcall	_clcd_write
+   645     07EA                     l721:
+   646                           
+   647                           ;clcd.c: 31:     _delay((unsigned long)((100)*(20000000/4000000.0)));
+   648     07EA  30A6               	movlw	166
+   649     07EB  00F4               	movwf	??_init_display_controller
+   650     07EC                     u117:
+   651     07EC  0BF4               	decfsz	??_init_display_controller,f
+   652     07ED  2FEC               	goto	u117
+   653     07EE  0000               	nop
+   654     07EF                     l723:
+   655                           
+   656                           ;clcd.c: 32:     clcd_write(0x0C, 0);
+   657     07EF  01F0               	clrf	clcd_write@mode
+   658     07F0  300C               	movlw	12
+   659     07F1  120A  118A  2738  120A  118A  	fcall	_clcd_write
+   660                           
+   661                           ;clcd.c: 33:     _delay((unsigned long)((100)*(20000000/4000000.0)));
+   662     07F6  30A6               	movlw	166
+   663     07F7  00F4               	movwf	??_init_display_controller
+   664     07F8                     u127:
+   665     07F8  0BF4               	decfsz	??_init_display_controller,f
+   666     07F9  2FF8               	goto	u127
+   667     07FA  0000               	nop
+   668     07FB                     l35:
+   669     07FB  0008               	return
+   670     07FC                     __end_of_init_display_controller:
+   671                           
+   672                           	psect	text4
+   673     0758                     __ptext4:	
+   674 ;; *************** function _clcd_print *****************
+   675 ;; Defined at:
+   676 ;;		line 54 in file "clcd.c"
+   677 ;; Parameters:    Size  Location     Type
+   678 ;;  str             1    wreg     PTR const unsigned char 
+   679 ;;		 -> STR_4(9), STR_3(8), STR_2(6), STR_1(6), 
+   680 ;;  addr            1    4[COMMON] unsigned char 
+   681 ;; Auto vars:     Size  Location     Type
+   682 ;;  str             1    5[COMMON] PTR const unsigned char 
+   683 ;;		 -> STR_4(9), STR_3(8), STR_2(6), STR_1(6), 
+   684 ;; Return value:  Size  Location     Type
+   685 ;;                  1    wreg      void 
+   686 ;; Registers used:
+   687 ;;		wreg, fsr0l, fsr0h, status,2, status,0, btemp+1, pclath, cstack
+   688 ;; Tracked objects:
+   689 ;;		On entry : 0/0
+   690 ;;		On exit  : 0/0
+   691 ;;		Unchanged: 0/0
+   692 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   693 ;;      Params:         1       0       0       0       0
+   694 ;;      Locals:         1       0       0       0       0
+   695 ;;      Temps:          0       0       0       0       0
+   696 ;;      Totals:         2       0       0       0       0
+   697 ;;Total ram usage:        2 bytes
+   698 ;; Hardware stack levels used: 1
+   699 ;; Hardware stack levels required when called: 1
+   700 ;; This function calls:
+   701 ;;		_clcd_write
+   702 ;; This function is called by:
+   703 ;;		_main
+   704 ;; This function uses a non-reentrant model
+   705 ;;
+   706                           
+   707     0758                     _clcd_print:	
+   708                           ;psect for function _clcd_print
+   709                           
+   710                           
+   711                           ;incstack = 0
+   712                           ; Regs used in _clcd_print: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
+   713                           ;clcd_print@str stored from wreg
+   714     0758  00F5               	movwf	clcd_print@str
+   715     0759                     l735:
+   716                           
+   717                           ;clcd.c: 54: void clcd_print(const char *str, unsigned char addr);clcd.c: 55: {;clcd.c: 
+      +                          56:     clcd_write(addr, 0);
+   718     0759  01F0               	clrf	clcd_write@mode
+   719     075A  0874               	movf	clcd_print@addr,w
+   720     075B  120A  118A  2738  120A  118A  	fcall	_clcd_write
+   721                           
+   722                           ;clcd.c: 58:     while (*str != '\0')
+   723     0760  2F73               	goto	l741
+   724     0761                     l737:
+   725                           
+   726                           ;clcd.c: 59:     {;clcd.c: 60:         clcd_write(*str, 1);
+   727     0761  01F0               	clrf	clcd_write@mode
+   728     0762  0AF0               	incf	clcd_write@mode,f
+   729     0763  0875               	movf	clcd_print@str,w
+   730     0764  0084               	movwf	4
+   731     0765  120A  118A  2003  120A  118A  	fcall	stringdir
+   732     076A  120A  118A  2738  120A  118A  	fcall	_clcd_write
+   733     076F                     l739:
+   734                           
+   735                           ;clcd.c: 61:         str++;
+   736     076F  3001               	movlw	1
+   737     0770  00FF               	movwf	btemp+1
+   738     0771  087F               	movf	btemp+1,w
+   739     0772  07F5               	addwf	clcd_print@str,f
+   740     0773                     l741:
+   741                           
+   742                           ;clcd.c: 58:     while (*str != '\0')
+   743     0773  0875               	movf	clcd_print@str,w
+   744     0774  0084               	movwf	4
+   745     0775  120A  118A  2003  120A  118A  	fcall	stringdir
+   746     077A  3A00               	xorlw	0
+   747     077B  1D03               	skipz
+   748     077C  2F7E               	goto	u61
+   749     077D  2F7F               	goto	u60
+   750     077E                     u61:
+   751     077E  2F61               	goto	l737
+   752     077F                     u60:
+   753     077F                     l47:
+   754     077F  0008               	return
+   755     0780                     __end_of_clcd_print:
+   756                           
+   757                           	psect	text5
+   758     0738                     __ptext5:	
+   759 ;; *************** function _clcd_write *****************
+   760 ;; Defined at:
+   761 ;;		line 4 in file "clcd.c"
+   762 ;; Parameters:    Size  Location     Type
+   763 ;;  byte            1    wreg     unsigned char 
+   764 ;;  mode            1    0[COMMON] unsigned char 
+   765 ;; Auto vars:     Size  Location     Type
+   766 ;;  byte            1    3[COMMON] unsigned char 
+   767 ;; Return value:  Size  Location     Type
+   768 ;;                  1    wreg      void 
+   769 ;; Registers used:
+   770 ;;		wreg
+   771 ;; Tracked objects:
+   772 ;;		On entry : 0/0
+   773 ;;		On exit  : 0/0
+   774 ;;		Unchanged: 0/0
+   775 ;; Data sizes:     COMMON   BANK0   BANK1   BANK3   BANK2
+   776 ;;      Params:         1       0       0       0       0
+   777 ;;      Locals:         1       0       0       0       0
+   778 ;;      Temps:          2       0       0       0       0
+   779 ;;      Totals:         4       0       0       0       0
+   780 ;;Total ram usage:        4 bytes
+   781 ;; Hardware stack levels used: 1
+   782 ;; This function calls:
+   783 ;;		Nothing
+   784 ;; This function is called by:
+   785 ;;		_init_display_controller
+   786 ;;		_clcd_print
+   787 ;;		_clcd_putch
+   788 ;; This function uses a non-reentrant model
+   789 ;;
+   790                           
+   791     0738                     _clcd_write:	
+   792                           ;psect for function _clcd_write
+   793                           
+   794                           
+   795                           ;incstack = 0
+   796                           ; Regs used in _clcd_write: [wreg]
+   797                           ;clcd_write@byte stored from wreg
+   798     0738  00F3               	movwf	clcd_write@byte
+   799     0739                     l697:
+   800                           
+   801                           ;clcd.c: 4: static void clcd_write(unsigned char byte, unsigned char mode);clcd.c: 5: {;
+      +                          clcd.c: 6:     RE2 = (__bit)mode;
+   802     0739  1870               	btfsc	clcd_write@mode,0
+   803     073A  2F3C               	goto	u41
+   804     073B  2F40               	goto	u40
+   805     073C                     u41:
+   806     073C  1283               	bcf	3,5	;RP0=0, select bank0
+   807     073D  1303               	bcf	3,6	;RP1=0, select bank0
+   808     073E  1509               	bsf	9,2	;volatile
+   809     073F  2F43               	goto	u54
+   810     0740                     u40:
+   811     0740  1283               	bcf	3,5	;RP0=0, select bank0
+   812     0741  1303               	bcf	3,6	;RP1=0, select bank0
+   813     0742  1109               	bcf	9,2	;volatile
+   814     0743                     u54:
+   815     0743                     l699:
+   816                           
+   817                           ;clcd.c: 7:     PORTD = byte;
+   818     0743  0873               	movf	clcd_write@byte,w
+   819     0744  0088               	movwf	8	;volatile
+   820     0745                     l701:
+   821                           
+   822                           ;clcd.c: 9:     RE1 = 1;
+   823     0745  1489               	bsf	9,1	;volatile
+   824                           
+   825                           ;clcd.c: 10:     _delay((unsigned long)((100)*(20000000/4000000.0)));
+   826     0746  30A6               	movlw	166
+   827     0747  00F1               	movwf	??_clcd_write
+   828     0748                     u137:
+   829     0748  0BF1               	decfsz	??_clcd_write,f
+   830     0749  2F48               	goto	u137
+   831     074A  0000               	nop
+   832     074B                     l703:
+   833                           
+   834                           ;clcd.c: 11:     RE1 = 0;
+   835     074B  1283               	bcf	3,5	;RP0=0, select bank0
+   836     074C  1303               	bcf	3,6	;RP1=0, select bank0
+   837     074D  1089               	bcf	9,1	;volatile
+   838                           
+   839                           ;clcd.c: 13:     _delay((unsigned long)((4100)*(20000000/4000000.0)));
+   840     074E  301B               	movlw	27
+   841     074F  00F2               	movwf	??_clcd_write+1
+   842     0750  309E               	movlw	158
+   843     0751  00F1               	movwf	??_clcd_write
+   844     0752                     u147:
+   845     0752  0BF1               	decfsz	??_clcd_write,f
+   846     0753  2F52               	goto	u147
+   847     0754  0BF2               	decfsz	??_clcd_write+1,f
+   848     0755  2F52               	goto	u147
+   849     0756  0000               	nop
+   850     0757                     l32:
+   851     0757  0008               	return
+   852     0758                     __end_of_clcd_write:
+   853     007E                     btemp	set	126	;btemp
+   854     007E                     wtemp0	set	126
+   855                           
+   856                           	psect	idloc
+   857                           
+   858                           ;Config register IDLOC0 @ 0x2000
+   859                           ;	unspecified, using default values
+   860     2000                     	org	8192
+   861     2000  3FFF               	dw	16383
+   862                           
+   863                           ;Config register IDLOC1 @ 0x2001
+   864                           ;	unspecified, using default values
+   865     2001                     	org	8193
+   866     2001  3FFF               	dw	16383
+   867                           
+   868                           ;Config register IDLOC2 @ 0x2002
+   869                           ;	unspecified, using default values
+   870     2002                     	org	8194
+   871     2002  3FFF               	dw	16383
+   872                           
+   873                           ;Config register IDLOC3 @ 0x2003
+   874                           ;	unspecified, using default values
+   875     2003                     	org	8195
+   876     2003  3FFF               	dw	16383
+   877                           
+   878                           	psect	config
+   879                           
+   880                           ;Config register CONFIG @ 0x2007
+   881                           ;	Oscillator Selection bits
+   882                           ;	FOSC = 0x3, unprogrammed default
+   883                           ;	Watchdog Timer Enable bit
+   884                           ;	WDTE = OFF, WDT disabled
+   885                           ;	Power-up Timer Enable bit
+   886                           ;	PWRTE = 0x1, unprogrammed default
+   887                           ;	Brown-out Reset Enable bit
+   888                           ;	BOREN = 0x1, unprogrammed default
+   889                           ;	Low-Voltage (Single-Supply) In-Circuit Serial Programming Enable bit
+   890                           ;	LVP = 0x1, unprogrammed default
+   891                           ;	Data EEPROM Memory Code Protection bit
+   892                           ;	CPD = 0x1, unprogrammed default
+   893                           ;	Flash Program Memory Write Enable bits
+   894                           ;	WRT = 0x3, unprogrammed default
+   895                           ;	In-Circuit Debugger Mode bit
+   896                           ;	DEBUG = 0x1, unprogrammed default
+   897                           ;	Flash Program Memory Code Protection bit
+   898                           ;	CP = 0x1, unprogrammed default
+   899     2007                     	org	8199
+   900     2007  3FFB               	dw	16379
+
+Data Sizes:
+    Strings     29
+    Constant    0
+    Data        0
+    BSS         0
+    Persistent  0
+    Stack       0
+
+Auto Spaces:
+    Space          Size  Autos    Used
+    COMMON           14      6       6
+    BANK0            80      0       0
+    BANK1            80      0       0
+    BANK3            96      0       0
+    BANK2            96      0       0
+
+Pointer List with Targets:
+
+    clcd_print@str	PTR const unsigned char  size(1) Largest target is 9
+		 -> STR_4(CODE[9]), STR_3(CODE[8]), STR_2(CODE[6]), STR_1(CODE[6]), 
+
+
+Critical Paths under _main in COMMON
+
+    _main->_clcd_print
+    _init_clcd->_init_display_controller
+    _init_display_controller->_clcd_write
+    _clcd_print->_clcd_write
+
+Critical Paths under _main in BANK0
+
+    None.
+
+Critical Paths under _main in BANK1
+
+    None.
+
+Critical Paths under _main in BANK3
+
+    None.
+
+Critical Paths under _main in BANK2
+
+    None.
+
+Call Graph Tables:
+
+ ---------------------------------------------------------------------------------
+ (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
+ ---------------------------------------------------------------------------------
+ (0) _main                                                 0     0      0    2111
+                         _clcd_print
+                        _init_config
+ ---------------------------------------------------------------------------------
+ (1) _init_config                                          0     0      0     804
+                          _init_clcd
+ ---------------------------------------------------------------------------------
+ (2) _init_clcd                                            0     0      0     804
+            _init_display_controller
+ ---------------------------------------------------------------------------------
+ (3) _init_display_controller                              2     2      0     804
+                                              4 COMMON     2     2      0
+                         _clcd_write
+ ---------------------------------------------------------------------------------
+ (1) _clcd_print                                           2     1      1    1307
+                                              4 COMMON     2     1      1
+                         _clcd_write
+ ---------------------------------------------------------------------------------
+ (4) _clcd_write                                           4     3      1     804
+                                              0 COMMON     4     3      1
+ ---------------------------------------------------------------------------------
+ Estimated maximum stack depth 4
+ ---------------------------------------------------------------------------------
+
+ Call Graph Graphs:
+
+ _main (ROOT)
+   _clcd_print
+     _clcd_write
+   _init_config
+     _init_clcd
+       _init_display_controller
+         _clcd_write
+
+ Address spaces:
+Name               Size   Autos  Total    Cost      Usage
+BITCOMMON            E      0       0       0        0.0%
+EEDATA             100      0       0       0        0.0%
+NULL                 0      0       0       0        0.0%
+CODE                 0      0       0       0        0.0%
+COMMON               E      6       6       1       42.9%
+BITSFR0              0      0       0       1        0.0%
+SFR0                 0      0       0       1        0.0%
+BITSFR1              0      0       0       2        0.0%
+SFR1                 0      0       0       2        0.0%
+STACK                0      0       0       2        0.0%
+ABS                  0      0       0       3        0.0%
+BITBANK0            50      0       0       4        0.0%
+BITSFR3              0      0       0       4        0.0%
+SFR3                 0      0       0       4        0.0%
+BANK0               50      0       0       5        0.0%
+BITSFR2              0      0       0       5        0.0%
+SFR2                 0      0       0       5        0.0%
+BITBANK1            50      0       0       6        0.0%
+BANK1               50      0       0       7        0.0%
+BITBANK3            60      0       0       8        0.0%
+BANK3               60      0       0       9        0.0%
+BITBANK2            60      0       0      10        0.0%
+BANK2               60      0       0      11        0.0%
+DATA                 0      0       0      12        0.0%
+
+
+Microchip Technology PIC Macro Assembler V2.41 build 20230208172133 
+Symbol Table                                                                                   Fri Oct 06 23:48:27 2023
+
+                              l7 072C                                pc 0002                   clcd_print@addr 0074  
+                             l32 0757                               l35 07FB                               l38 0737  
+                             l47 077F                               u40 0740                               u41 073C  
+                             u60 077F                               u61 077E                               u54 0743  
+                             u77 07AD                               u87 07BC                               u97 07CA  
+                             fsr 0004                              l701 0745                              l703 074B  
+                            l711 07C8                              l721 07EA                              l713 07CD  
+                            l705 07A9                              l723 07EF                              l715 07D4  
+                            l707 07B1                              l731 0732                              l741 0773  
+                            l717 07D7                              l709 07B8                              l725 072D  
+                            l733 0727                              l735 0759                              l719 07DE  
+                            l727 0730                              l751 079D                              l743 0780  
+                            l737 0761                              l729 0731                              l745 0785  
+                            l739 076F                              l747 078D                              l749 0795  
+                            l697 0739                              l699 0743                              _RE1 0049  
+                            _RE2 004A                              u107 07E0                              u117 07EC  
+                            u127 07F8                              u137 0748                              u147 0752  
+                            fsr0 0004                             STR_1 0020                             STR_2 001A  
+                           STR_3 0012                             STR_4 0009                             _main 0780  
+                           btemp 007E                             start 0000                   clcd_write@byte 0073  
+                 clcd_write@mode 0070                            ?_main 0070                     ?_init_config 0070  
+                          _PORTD 0008                            _TRISD 0088                            pclath 000A  
+                          status 0003                            wtemp0 007E                  __initialization 07FC  
+                   __end_of_main 07A9                           ??_main 0076                           _TRISE1 0449  
+                         _TRISE2 044A          _init_display_controller 07A9          __end_of__initialization 07FC  
+                 __pcstackCOMMON 0070        ??_init_display_controller 0074                       _clcd_print 0758  
+                     _clcd_write 0738                       __pmaintext 0780                       __stringtab 0003  
+                        __ptext1 0727                          __ptext2 072D                          __ptext3 07A9  
+                        __ptext4 0758                          __ptext5 0738  __end_of_init_display_controller 07FC  
+              __end_of_init_clcd 0738             end_of_initialization 07FC                      ?_clcd_print 0074  
+                    ?_clcd_write 0070                    clcd_print@str 0075              start_initialization 07FC  
+                  ??_init_config 0076                        ___latbits 0002                        __pstrings 0003  
+                      _init_clcd 072D              __end_of_init_config 072D         ?_init_display_controller 0070  
+                   ??_clcd_print 0075                     ??_clcd_write 0071                      __stringbase 0008  
+             __end_of_clcd_print 0780               __end_of_clcd_write 0758                       ?_init_clcd 0070  
+             __end_of__stringtab 0009                      _init_config 0727                      ??_init_clcd 0076  
+                      stringcode 0003                         stringdir 0003                         stringtab 0003  
