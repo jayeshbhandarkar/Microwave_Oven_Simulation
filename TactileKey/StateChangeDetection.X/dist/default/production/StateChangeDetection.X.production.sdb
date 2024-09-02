@@ -1,0 +1,41 @@
+[p GLOBOPT AUTOSTATIC IEEE_DBL IEEE_FLT PIC14 PICREGULAR PICMID ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F877A ]
+[d frameptr 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"4 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\common\Umul8_16.c
+[v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
+"6 C:\Program Files\Microchip\xc8\v2.41\pic\sources\c90\pic\__eeprom.c
+[v ___eecpymem __eecpymem `(v  1 e 1 0 ]
+"39
+[v ___memcpyee __memcpyee `(v  1 e 1 0 ]
+"14 C:\Users\bhand\MPLABXProjects\TactileKey\StateChangeDetection.X\main.c
+[v _init_config init_config `(v  1 s 1 init_config ]
+"22
+[v _main main `(v  1 e 1 0 ]
+"340 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC16Fxxx_DFP/1.4.149/xc8\pic\include\proc\pic16f877a.h
+[v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"1499
+[v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"2678
+[v _RB0 RB0 `VEb  1 e 0 @48 ]
+"2753
+[v _RD0 RD0 `VEb  1 e 0 @64 ]
+"2939
+[v _TRISB0 TRISB0 `VEb  1 e 0 @1072 ]
+"2987
+[v _TRISD0 TRISD0 `VEb  1 e 0 @1088 ]
+"22 C:\Users\bhand\MPLABXProjects\TactileKey\StateChangeDetection.X\main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"23
+[v main@once once `i  1 a 2 0 ]
+"40
+} 0
+"14
+[v _init_config init_config `(v  1 s 1 init_config ]
+{
+"20
+} 0
